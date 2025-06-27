@@ -124,16 +124,20 @@ let details = {
             console.log(error);
         }
     }
+    checkAuthentication();
 
     
     // Fetch
-    fetch("user.json")
+    fetch("https://jsonplaceholder.typicode.com/users")
     .then(response => {
-        console.log(response.json())
+        return response.json()
     }).then(data => {
         console.log(data);
+        data.forEach(user =>{
+            console.log(user.name);
+            console.log(user.email);
+        })
     })
     .catch(error => {
         console.log(error);
-    })
-checkAuthentication();
+    });
